@@ -1,13 +1,15 @@
 '''
 ------------------------------------------------------------------------
-[program description]
+Binary Search Tree Using Linked Nodes
 ------------------------------------------------------------------------
 Author: Scott Vodon
 ID:     181686100
 Email:  vodo6100@mylaurier.ca
 __updated__ = 2019 M03 11
 ------------------------------------------------------------------------
+INCOMPLETE
 '''
+
 # Imports
 from copy import deepcopy
 from Queue_array import Queue
@@ -55,13 +57,15 @@ class BST:
             self._root = node
             inserted = True
         else:
-            inserted = self._insert_aux(self._root, node,value)
+            inserted = self._insert_aux(self._root, node, value)
         return inserted
 
     def insert_node(self, node):
         if self._root == None:
             self._root = node
-        inserted = self._insert_aux(self._root, node, value)
+        else:
+            value = node._value
+            inserted = self._insert_aux(self._root, node, value)
         return inserted
 
 
@@ -75,14 +79,15 @@ class BST:
                 inserted = self._insert_aux(pointer._left, node, value)
         elif pointer._value < value: # check the right subtree.
             if pointer._right == None: # end case
-                pointer.right = node
+                pointer._right = node
                 inserted = True
             else:
                 inserted = self._insert_aux(pointer._right, node, value)
         else: #Catch case: value is already in the BST.
             inserted = False
-
+            print("error")
         pointer._update_height()
+        #print("run")
         return inserted
 
     def retrieve(self, key):
