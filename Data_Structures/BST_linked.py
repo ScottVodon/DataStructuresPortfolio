@@ -11,7 +11,6 @@ __updated__ = 2019 M03 11
 # Imports
 from copy import deepcopy
 from Queue_array import Queue
-#TESTING
 
 class _BST_Node:
     def __init__(self, value):
