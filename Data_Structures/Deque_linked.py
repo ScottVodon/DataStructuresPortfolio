@@ -7,6 +7,7 @@ ID:     181686100
 Email:  vodo6100@mylaurier.ca
 __updated__ = 2019 M03 15
 ------------------------------------------------------------------------
+INCOMPLETE
 '''
 # Imports
 from copy import deepcopy
@@ -89,7 +90,7 @@ class Deque:
         -------------------------------------------------------
         """
         new_node = _Deque_Node(value, None, self._front)
-        
+
         if self._front is None:
             self._front = new_node
             self._rear = new_node
@@ -114,7 +115,7 @@ class Deque:
         """
 
         new_node = _Deque_Node(value, self._rear, None)
-        
+
         if self._front is None:
             self._front = new_node
             self._rear = new_node
@@ -146,7 +147,7 @@ class Deque:
             self._front = None
             self._rear = None
         self._count -= 1
-        
+
         return hold._value
 
     def remove_rear(self):
@@ -170,7 +171,7 @@ class Deque:
             self._front = None
             self._rear = None
         self._count -= 1
-        
+
         return hold._value
 
     def peek_front(self):
@@ -205,8 +206,8 @@ class Deque:
     def _swap(self, l, r):
         """
         -------------------------------------------------------
-        Swaps two nodes within a deque. l has taken the place of r, 
-        r has taken the place of l and _front and _rear are updated 
+        Swaps two nodes within a deque. l has taken the place of r,
+        r has taken the place of l and _front and _rear are updated
         as appropriate. Data is not moved.
         Use: self._swap(self, l, r):
         -------------------------------------------------------
@@ -223,7 +224,7 @@ class Deque:
         next1 = l._next
         prev2 = r._prev
         next2 = r._next
-         
+
         if next1 is not None: #Informing the neighbors of the move
             next1._prev = r
         if next2 is not None:
@@ -232,19 +233,19 @@ class Deque:
             prev1._next = r
         if prev2 is not None:
             prev2._next = l
-            
+
         if next1 is r: #Check for for a neighborly move
             next1 = l
             prev2 = r
         if next2 is l:
             next2 = r
             prev1 = l
-        
+
         r._prev = prev1 #Making the move
         r._next = next1
         l._prev = prev2
         l._next = next2
-        
+
         if r._prev is None: #Checking for new fronts and backs
             self._front = r
         if r._next is None:
@@ -253,7 +254,7 @@ class Deque:
             self._front = l
         if l._next is None:
             self._rear = l
-        
+
         return
 
     def __iter__(self):
