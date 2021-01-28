@@ -11,7 +11,6 @@ __updated__ = 2019 M03 8
 # Imports
 from copy import deepcopy
 
-
 class _SL_Node:
 
     def __init__(self, value, next_):
@@ -97,7 +96,7 @@ class Sorted_List:
         new_node =  _SL_Node(value, None)
         previous = None
         Flag = False
-        
+
         if current is None:
             self._front = new_node
             self._rear = new_node
@@ -128,9 +127,9 @@ class Sorted_List:
 
     def _linear_search(self, key):
         """
-        Cannot do a (simple) binary search on a linked structure. 
+        Cannot do a (simple) binary search on a linked structure.
         -------------------------------------------------------
-        Searches for the first occurrence of key in the sorted list. 
+        Searches for the first occurrence of key in the sorted list.
         Performs a stable search.
         Private helper method - used only by other ADT methods.
         Use: i = self._linear_search(key)
@@ -145,18 +144,18 @@ class Sorted_List:
         """
         current = self._front
         index = 0
-        previous = None        
+        previous = None
         if key < 0:
             key = self._count + key
-        
+
         while current is not None and current._value != key:
             previous = current
             current = current._next
             index += 1
-            
+
         if current is None:
             index = -1
-            
+
         return previous, current, index
 
     def remove(self, key):
@@ -173,7 +172,7 @@ class Sorted_List:
         """
 
         previous, current, _ = self._linear_search(key)
-                
+
         if current is None:
             value = None
         else:
@@ -319,17 +318,17 @@ class Sorted_List:
         -------------------------------------------------------
         """
         assert self._is_valid_index(i), "Invalid index value"
-        
+
         count = 0
         target = self._front
-        
+
         if i < 0:
             i = i + self._count
-        
+
         while count < i:
             target = target._next
             count += 1
-        
+
         value = deepcopy(target._value)
         return value
 
@@ -360,9 +359,9 @@ class Sorted_List:
         -------------------------------------------------------
         """
         assert self._front is not None, "Cannot find maximum of an empty list"
-        
+
         value =  deepcopy(self._rear._value)
-        
+
         return value
 
     def min(self):
@@ -376,9 +375,9 @@ class Sorted_List:
         -------------------------------------------------------
         """
         assert self._front is not None, "Cannot find minimum of an empty list"
-        
+
         value = deepcopy(self._front._value)
-        
+
         return value
 
     def count(self, key):
@@ -396,8 +395,8 @@ class Sorted_List:
 
         count = 0
         current = self._front
-        
-        while current is not None:  
+
+        while current is not None:
             if current._value == key:
                 count += 1
             current = current._next
@@ -407,8 +406,8 @@ class Sorted_List:
     def clean(self):
         """
         ---------------------------------------------------------
-        Removes duplicates from the sorted list. The list contains 
-        one and only one of each value formerly present in the list. 
+        Removes duplicates from the sorted list. The list contains
+        one and only one of each value formerly present in the list.
         The first occurrence of each value is preserved.
         Use: source.clean()
         -------------------------------------------------------
@@ -419,7 +418,7 @@ class Sorted_List:
         previous = None
         archive = []
         current = self._front
-        
+
         while current is not None:
             if current._value in archive:
                 previous._next = current._next
@@ -445,8 +444,8 @@ class Sorted_List:
             args - an array of arguments (tuple of int)
             args[0], if it exists, is the index i
         Returns:
-            value - if args exists, the value at position args[0], 
-                otherwise the last value in the list, value is 
+            value - if args exists, the value at position args[0],
+                otherwise the last value in the list, value is
                 removed from the list (?)
         -------------------------------------------------------
         """
@@ -665,8 +664,8 @@ class Sorted_List:
     def combine(self, source1, source2):
         """
         -------------------------------------------------------
-        Combines two source lists into the current target list. 
-        When finished, the contents of source1 and source2 are interlaced 
+        Combines two source lists into the current target list.
+        When finished, the contents of source1 and source2 are interlaced
         into target and source1 and source2 are empty.
         Order of source values is preserved.
         (iterative algorithm)
