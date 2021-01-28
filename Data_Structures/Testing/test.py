@@ -8,7 +8,7 @@ Email:  vodo6100@mylaurier.ca
 __updated__ = 2019 M02 25
 ------------------------------------------------------------------------
 '''
-from BST_linked import*
+from Data_Structures.Data_Structures.BST_linked import *
 
 tree = BST()
 bank = [6,4,8,5,9,7]
